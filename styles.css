@@ -1,0 +1,348 @@
+/* ==========================================================================
+   Vantage Financial Technologies — Information Security Program Portfolio
+   Print-first stylesheet (WeasyPrint / A4)
+   ========================================================================== */
+
+:root {
+  --navy: #10243d;
+  --navy-2: #1b3a5c;
+  --slate: #44546a;
+  --slate-light: #6b7a90;
+  --line: #d3dae4;
+  --line-soft: #e6ebf1;
+  --bg-soft: #f4f7fa;
+  --bg-soft-2: #eef3f8;
+  --accent: #0b7a75;      /* teal */
+  --accent-2: #b8860b;    /* amber */
+  --high: #b3261e;
+  --med: #b8860b;
+  --low: #2e7d32;
+  --ink: #1a1f26;
+}
+
+/* ---------- Page setup ---------- */
+@page {
+  size: A4;
+  margin: 20mm 18mm 20mm 18mm;
+  @top-left {
+    content: "Vantage Financial Technologies — Information Security Program Portfolio";
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 7.5pt;
+    color: #6b7a90;
+  }
+  @top-right {
+    content: "CONFIDENTIAL";
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 1px;
+    color: #b3261e;
+  }
+  @bottom-left {
+    content: "Version 1.0 — October 2026";
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 7.5pt;
+    color: #6b7a90;
+  }
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 7.5pt;
+    color: #6b7a90;
+  }
+}
+
+@page cover {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { font-size: 10.5pt; }
+body {
+  font-family: "DejaVu Sans", Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+p { margin: 0 0 8pt 0; }
+strong { color: var(--navy); }
+a { color: var(--accent); text-decoration: none; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "DejaVu Sans", Arial, sans-serif;
+  color: var(--navy);
+  line-height: 1.2;
+  margin: 0 0 6pt 0;
+}
+h1 { font-size: 20pt; }
+h2 { font-size: 15pt; }
+h3 { font-size: 12pt; }
+h4 { font-size: 10.5pt; color: var(--navy-2); }
+h5 { font-size: 9.5pt; color: var(--slate); text-transform: uppercase; letter-spacing: .6px; }
+
+/* ---------- Cover ---------- */
+.cover {
+  page: cover;
+  height: 297mm;
+  width: 210mm;
+  background: linear-gradient(160deg, #0b1c30 0%, #10243d 45%, #1b3a5c 100%);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  page-break-after: always;
+}
+.cover .band {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 14mm;
+  background: var(--accent);
+}
+.cover .inner {
+  position: absolute;
+  top: 52mm; left: 20mm; right: 20mm;
+}
+.cover .eyebrow {
+  font-size: 10pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7fd4cf;
+  margin-bottom: 10mm;
+}
+.cover h1 {
+  font-size: 34pt;
+  color: #fff;
+  margin: 0 0 6mm 0;
+  line-height: 1.1;
+}
+.cover h1 span { color: #7fd4cf; }
+.cover .subtitle {
+  font-size: 13pt;
+  color: #c8d6e5;
+  margin-bottom: 14mm;
+  line-height: 1.4;
+  max-width: 150mm;
+}
+.cover .rule {
+  width: 60mm; height: 3px; background: var(--accent-2); margin-bottom: 12mm;
+}
+.cover .meta {
+  font-size: 9.5pt;
+  color: #a9bcd0;
+  line-height: 1.8;
+}
+.cover .meta strong { color: #fff; }
+.cover .foot {
+  position: absolute;
+  bottom: 18mm; left: 20mm; right: 20mm;
+  font-size: 8pt;
+  color: #7f93a8;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 5mm;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- Section structure ---------- */
+.section { page-break-before: always; }
+.section-head {
+  border-bottom: 3px solid var(--navy);
+  padding-bottom: 4pt;
+  margin-bottom: 12pt;
+}
+.section-head .num {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  font-size: 9pt;
+  padding: 2pt 8pt;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  margin-bottom: 4pt;
+}
+.section-head h2 { margin: 0; }
+.section-head .lede { color: var(--slate); font-size: 9.5pt; margin-top: 3pt; }
+
+h3.block {
+  border-left: 4px solid var(--accent);
+  padding-left: 8pt;
+  margin-top: 14pt;
+}
+h4.block {
+  border-left: 3px solid var(--slate-light);
+  padding-left: 7pt;
+  margin-top: 11pt;
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  margin: 8pt 0 12pt 0;
+}
+th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  padding: 5pt 6pt;
+  font-weight: bold;
+  font-size: 8pt;
+  vertical-align: top;
+}
+td {
+  border-bottom: 1px solid var(--line-soft);
+  padding: 5pt 6pt;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+table.compact td, table.compact th { padding: 3.5pt 5pt; font-size: 8pt; }
+caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 8pt;
+  color: var(--slate);
+  padding-bottom: 4pt;
+  font-style: italic;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  padding: 1pt 6pt;
+  border-radius: 10px;
+  font-size: 7.5pt;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+}
+.b-high { background: var(--high); }
+.b-med  { background: var(--med); }
+.b-low  { background: var(--low); }
+.b-info { background: var(--navy-2); }
+.b-teal { background: var(--accent); }
+
+/* ---------- Callouts ---------- */
+.callout {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  background: var(--bg-soft);
+  padding: 8pt 10pt;
+  margin: 10pt 0;
+  font-size: 9pt;
+  border-radius: 2px;
+}
+.callout.warn { border-left-color: var(--high); background: #fdf3f2; }
+.callout.key  { border-left-color: var(--accent-2); background: #fdf8ec; }
+.callout .ct {
+  font-weight: bold;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 3pt;
+  font-size: 9pt;
+}
+
+/* ---------- Executive summary special ---------- */
+.exec {
+  border: 2px solid var(--navy);
+  border-radius: 4px;
+  padding: 9pt 11pt;
+  background: #fff;
+}
+.exec .exec-head {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 3pt;
+  margin-bottom: 5pt;
+}
+.exec h2 { margin: 0; font-size: 15pt; }
+.exec p { font-size: 9.3pt; margin-bottom: 5pt; line-height: 1.42; }
+.exec .kpis { display: flex; gap: 5pt; margin: 6pt 0; }
+.exec .kpi {
+  flex: 1;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 4px;
+  padding: 4pt 4pt;
+  text-align: center;
+}
+.exec .kpi .v { font-size: 12.5pt; font-weight: bold; color: #7fd4cf; display: block; }
+.exec .kpi .l { font-size: 6.2pt; letter-spacing: .3px; text-transform: uppercase; color: #c8d6e5; }
+
+/* ---------- TOC (auto page numbers via target-counter; float, not flex) ---------- */
+.toc { font-size: 10pt; }
+.toc .row {
+  display: block;
+  border-bottom: 1px dotted var(--line);
+  padding: 4pt 0;
+  overflow: hidden;
+}
+.toc .row .t { text-decoration: none; color: var(--navy); }
+.toc .row .p { float: right; text-decoration: none; color: var(--slate-light); }
+.toc .row .p::after { content: target-counter(attr(href url), page); }
+.toc .row.lvl2 { padding-left: 16pt; font-size: 9pt; }
+.toc .row.lvl2 .t { color: var(--slate); }
+
+/* ---------- Heat map ---------- */
+.heat { width: 100%; border-collapse: collapse; font-size: 7.5pt; margin: 10pt 0; }
+.heat th { background: var(--navy); color: #fff; padding: 4pt; text-align: center; }
+.heat td { border: 1px solid #fff; padding: 4pt; text-align: center; height: 26pt; }
+.heat .cell { font-weight: bold; }
+.heat .l1 { background: #d9ead3; }
+.heat .l2 { background: #fff2cc; }
+.heat .l3 { background: #fce5cd; }
+.heat .l4 { background: #f4cccc; }
+.heat .l5 { background: #e06666; color: #fff; }
+.heat .lbl { background: var(--bg-soft-2); font-weight: bold; color: var(--navy); }
+
+/* ---------- Architecture diagram (CSS) ---------- */
+.arch {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 10pt;
+  background: var(--bg-soft);
+  margin: 10pt 0;
+}
+.arch .layer {
+  border: 1px dashed var(--slate-light);
+  border-radius: 4px;
+  padding: 6pt 8pt;
+  margin-bottom: 6pt;
+  background: #fff;
+}
+.arch .layer .lt { font-weight: bold; color: var(--navy); font-size: 9pt; }
+.arch .layer .ld { font-size: 8pt; color: var(--slate); }
+.arch .pillars { display: flex; flex-wrap: wrap; gap: 5pt; margin-top: 4pt; }
+.arch .pill {
+  background: var(--navy-2); color: #fff; font-size: 7.5pt;
+  padding: 3pt 7pt; border-radius: 3px;
+}
+
+/* ---------- Roadmap timeline ---------- */
+.roadmap { width: 100%; border-collapse: collapse; font-size: 8pt; margin: 10pt 0; }
+.roadmap th { background: var(--navy); color: #fff; padding: 5pt; text-align: left; }
+.roadmap td { border: 1px solid var(--line); padding: 5pt; vertical-align: top; }
+.roadmap .q { font-weight: bold; color: var(--navy); background: var(--bg-soft-2); width: 14%; }
+.roadmap .now { background: #eaf6f5; }
+.roadmap .done { background: #eef3f8; }
+
+/* ---------- Utility ---------- */
+.two-col { display: flex; gap: 12pt; }
+.two-col > div { flex: 1; }
+.small { font-size: 8pt; color: var(--slate); }
+.mono { font-family: "DejaVu Sans Mono", monospace; font-size: 8pt; }
+.tag {
+  display: inline-block; font-size: 7pt; padding: 1pt 5pt; border-radius: 3px;
+  background: var(--bg-soft-2); color: var(--slate); margin-right: 3pt;
+  border: 1px solid var(--line);
+}
+hr.soft { border: none; border-top: 1px solid var(--line); margin: 12pt 0; }
+.avoid-break { page-break-inside: avoid; }
+.page-break { page-break-before: always; }
+ol, ul { margin: 0 0 8pt 0; padding-left: 16pt; }
+li { margin-bottom: 3pt; }
+.footer-note { font-size: 7.5pt; color: var(--slate-light); font-style: italic; }

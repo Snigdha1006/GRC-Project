@@ -1,0 +1,15 @@
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# --- Python (used for PDF rendering) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Build / temp outputs ---
+*.log
+/tmp/

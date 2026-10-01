@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vantage Financial Technologies — Information Security Program Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<div class="cover">
+  <div class="band"></div>
+  <div class="inner">
+    <div class="eyebrow">Information Security Program Portfolio</div>
+    <h1>Vantage Financial<br>Technologies<span>.</span></h1>
+    <div class="subtitle">A consolidated, board-ready portfolio uniting governance, risk, Zero&nbsp;Trust architecture, incident response, and the FY27 compliance roadmap into a single coherent security program.</div>
+    <div class="rule"></div>
+    <div class="meta">
+      <strong>Document Owner:</strong> Office of the CISO<br>
+      <strong>Classification:</strong> Confidential — Internal &amp; Board Use<br>
+      <strong>Version:</strong> 1.0 &nbsp;|&nbsp; <strong>Issued:</strong> October 2026<br>
+      <strong>Review Cycle:</strong> Annual (next review October 2027)<br>
+      <strong>Prepared for:</strong> Board Security &amp; Technology Committee
+    </div>
+  </div>
+  <div class="foot">
+    <span>Vantage Financial Technologies, Inc. — Austin, TX</span>
+    <span>Confidential</span>
+  </div>
+</div>
+
+<!-- ============================ DOCUMENT CONTROL ============================ -->
+<div class="section">
+  <div class="section-head">
+    <span class="num">FRONT MATTER</span>
+    <h2>Document Control &amp; How to Read This Portfolio</h2>
+    <div class="lede">Provenance, version history, and reading guidance for this consolidated package.</div>
+  </div>
+
+  <h3 class="block">Purpose of This Portfolio</h3>
+  <p>This portfolio consolidates the four core artifacts of Vantage's information security program into one governed package: the <strong>governance documentation</strong> (Section&nbsp;1), the <strong>enterprise risk register</strong> (Section&nbsp;2), the <strong>Zero Trust architecture and incident response plan</strong> (Sections&nbsp;3–4), and the <strong>board briefing</strong> (Section&nbsp;5). A single-page <strong>executive summary</strong> precedes the body so that a first-time reader can understand the whole program without opening any individual section. Section&nbsp;6 (Compliance Roadmap) and the appendices complete the package.</p>
+  <p>These artifacts were not authored in isolation. Every risk named in the board briefing is drawn from the register; every architecture decision traces to a register risk ID; and every capability the incident response plan assumes is operational today is funded and delivered by the roadmap timeline. Section&nbsp;7 documents that traceability explicitly.</p>
+
+  <h3 class="block">Version History</h3>
+  <table class="compact">
+    <thead><tr><th style="width:12%">Version</th><th style="width:18%">Date</th><th style="width:30%">Author</th><th>Summary of Change</th></tr></thead>
+    <tbody>
+      <tr><td>0.1</td><td>Aug 2026</td><td>GRC Analyst</td><td>Initial assembly of governance documents.</td></tr>
+      <tr><td>0.5</td><td>Sep 2026</td><td>Security Engineering</td><td>Added Zero Trust architecture and IR plan.</td></tr>
+      <tr><td>0.8</td><td>Sep 2026</td><td>Office of the CISO</td><td>Consolidated risk register; added board briefing.</td></tr>
+      <tr><td>1.0</td><td>Oct 2026</td><td>CISO</td><td>Final consistency review; executive summary; approved for board distribution.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">How to Read This Document</h3>
+  <div class="two-col">
+    <div>
+      <h4>If you have five minutes</h4>
+      <p class="small">Read the <strong>Executive Summary</strong> and the <strong>Board Briefing</strong> (Section&nbsp;5). Together they state the posture, the top risks, and the investment asks.</p>
+    </div>
+    <div>
+      <h4>If you are a reviewer or auditor</h4>
+      <p class="small">Read <strong>Sections&nbsp;1–2</strong> for policy and risk, then <strong>Section&nbsp;7</strong> (Consistency &amp; Traceability) to verify that the four artifacts agree with one another.</p>
+    </div>
+  </div>
+
+  <div class="callout key">
+    <span class="ct">A note on internal consistency</span>
+    This portfolio is deliberately cross-referenced. Risk IDs (R-01…R-15) are the shared vocabulary linking the register, the architecture, the incident response plan, the roadmap, and the board briefing. If a control, playbook, or roadmap item is proposed anywhere in this document, it names the risk it mitigates.
+  </div>
+
+  <h3 class="block">Contents</h3>
+  <div class="toc">
+    <div class="row"><a class="t" href="#exec">Executive Summary</a><a class="p" href="#exec"></a></div>
+    <div class="row"><a class="t" href="#sec1">Section 1 — Governance Documentation</a><a class="p" href="#sec1"></a></div>
+    <div class="row lvl2"><a class="t" href="#s11">1.1 Information Security Policy (Master)</a><a class="p" href="#s11"></a></div>
+    <div class="row lvl2"><a class="t" href="#s12">1.2 Access Control Policy</a><a class="p" href="#s12"></a></div>
+    <div class="row lvl2"><a class="t" href="#s13">1.3 Data Classification &amp; Handling Standard</a><a class="p" href="#s13"></a></div>
+    <div class="row lvl2"><a class="t" href="#s14">1.4 Third-Party Risk Management Policy</a><a class="p" href="#s14"></a></div>
+    <div class="row lvl2"><a class="t" href="#s15">1.5 Security Governance Structure &amp; Roles</a><a class="p" href="#s15"></a></div>
+    <div class="row"><a class="t" href="#sec2">Section 2 — Enterprise Risk Register</a><a class="p" href="#sec2"></a></div>
+    <div class="row"><a class="t" href="#sec3">Section 3 — Zero Trust Architecture</a><a class="p" href="#sec3"></a></div>
+    <div class="row"><a class="t" href="#sec4">Section 4 — Incident Response Plan</a><a class="p" href="#sec4"></a></div>
+    <div class="row"><a class="t" href="#sec5">Section 5 — Board Briefing</a><a class="p" href="#sec5"></a></div>
+    <div class="row"><a class="t" href="#sec6">Section 6 — Compliance Roadmap (FY27)</a><a class="p" href="#sec6"></a></div>
+    <div class="row"><a class="t" href="#sec7">Section 7 — Consistency &amp; Traceability Review</a><a class="p" href="#sec7"></a></div>
+    <div class="row"><a class="t" href="#appA">Appendix A — Control Mapping (NIST CSF 2.0)</a><a class="p" href="#appA"></a></div>
+    <div class="row"><a class="t" href="#appB">Appendix B — Glossary</a><a class="p" href="#appB"></a></div>
+  </div>
+</div>
+
+<!-- ============================ EXECUTIVE SUMMARY ============================ -->
+<div class="section" id="exec">
+  <div class="section-head">
+    <span class="num">EXECUTIVE SUMMARY</span>
+    <h2>The Security Program on One Page</h2>
+    <div class="lede">Everything a first-time reader needs to understand Vantage's security posture — without opening another section.</div>
+  </div>
+
+  <div class="exec">
+    <div class="exec-head">
+      <h2>Executive Summary</h2>
+      <p class="small" style="margin:0">Vantage Financial Technologies — Information Security Program Portfolio, v1.0, October 2026</p>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><span class="v">15</span><span class="l">Register risks</span></div>
+      <div class="kpi"><span class="v">6</span><span class="l">High risks</span></div>
+      <div class="kpi"><span class="v">$92M</span><span class="l">ARR protected</span></div>
+      <div class="kpi"><span class="v">Q2 FY27</span><span class="l">ISO 27001</span></div>
+      <div class="kpi"><span class="v">$1.42M</span><span class="l">FY27 ask</span></div>
+    </div>
+
+    <p><strong>Vantage is a $92M-ARR, cloud-native fintech platform that automates lending and payments for community banks, credit unions, and SMB lenders.</strong> Our ~480 employees run the business on AWS, processing personally identifiable information and tokenized cardholder data on behalf of regulated institutions. Customers do not merely buy our software — they extend their own regulatory obligations to us, so our security program exists to make that extension of trust safe, repeatable, and provable.</p>
+
+    <p><strong>This portfolio is the program's single source of truth.</strong> Section&nbsp;1 sets the governance foundation — a master security policy with supporting access-control, data-handling, and third-party policies. Section&nbsp;2 is the enterprise risk register: fifteen scored risks (R-01 through R-15) that give the program a shared vocabulary and a defensible priority order. Sections&nbsp;3 and&nbsp;4 describe how we defend and how we respond — a Zero Trust architecture that removes implicit network trust, and a NIST SP 800-61-aligned incident response plan that assumes only the capabilities we actually operate today. Section&nbsp;5 is the board briefing; Section&nbsp;6 is the FY27 roadmap that funds the next stage.</p>
+
+    <p><strong>Our posture is best described as "maturing and defensible."</strong> We hold a current SOC&nbsp;2 Type&nbsp;II report, have moved 95% of endpoints under managed detection and response, and keep a signed forensic retainer on standby. Six risks remain rated <span class="badge b-high">High</span>: phishing-driven account takeover (R-01), third-party/supply-chain compromise (R-02), cloud misconfiguration (R-04), data exfiltration of regulated data (R-07), inadequate detection and response (R-12), and exploitation of unpatched vulnerabilities (R-14). These are the same six risks the board briefing asks the Committee to accept and fund — each a line item in the register, not a rhetorical flourish.</p>
+
+    <p><strong>The program is coherent by construction.</strong> Every architecture decision in Section&nbsp;3 traces to a specific risk ID, every incident-response assumption is a capability the roadmap already funds, and the board briefing cites only risks the register contains. Section&nbsp;7 documents this traceability so a reviewer can verify it rather than take it on faith.</p>
+
+    <p><strong>What we are asking for.</strong> The FY27 roadmap requests <strong>$1.42M</strong> to close the six High risks, achieve ISO&nbsp;27001 certification by Q2&nbsp;FY27, and advance toward PCI&nbsp;DSS v4.0 alignment. The most consequential ask is a third security engineer and a threat-hunting capability, because detection and response capacity — not tooling — is the binding constraint on reducing our highest risks. The program is sound, the priorities are evidence-based, and the investment closes a specific, named, measurable set of gaps.</p>
+  </div>
+
+  <div class="callout">
+    <span class="ct">One-sentence summary</span>
+    Vantage runs a maturing, standards-anchored security program with six clearly identified high risks; this portfolio proves the governance, architecture, response, and funding all point at the same six risks — and asks the board to fund the FY27 roadmap that closes them.
+  </div>
+</div>
+<!-- ============================ SECTION 1: GOVERNANCE ============================ -->
+<div class="section" id="sec1">
+  <div class="section-head">
+    <span class="num">SECTION 1</span>
+    <h2>Governance Documentation</h2>
+    <div class="lede">The policy foundation that translates board intent into enforceable, auditable rules for the whole organization.</div>
+  </div>
+
+  <p>Governance is where a security program stops being a set of technical preferences and becomes an obligation the organization can be held to. The documents in this section are the program's constitution: they state what Vantage protects, who is accountable, and which behaviors are mandatory. They are written to be testable — every clause maps to a control an auditor can verify — and they deliberately use the same risk vocabulary (R-01…R-15) as the register so that policy, risk, and architecture never drift apart.</p>
+
+  <!-- 1.1 -->
+  <h3 class="block" id="s11">1.1 Information Security Policy (Master Policy)</h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:22%"><strong>Policy ID</strong></td><td>POL-SEC-001</td><td style="width:22%"><strong>Owner</strong></td><td>Chief Information Security Officer (CISO)</td></tr>
+      <tr><td><strong>Approved by</strong></td><td>Board Security &amp; Technology Committee</td><td><strong>Effective</strong></td><td>October 2026</td></tr>
+      <tr><td><strong>Review cycle</strong></td><td>Annual, or upon material change</td><td><strong>Applies to</strong></td><td>All employees, contractors, and third parties with access</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.1.1 Purpose</h4>
+  <p>This policy establishes Vantage's commitment to protecting the confidentiality, integrity, and availability of the information it holds on behalf of itself, its customers, and their end users. It defines the mandatory security objectives that all subordinate policies, standards, and procedures must satisfy.</p>
+
+  <h4 class="block">1.1.2 Scope</h4>
+  <p>This policy applies to all information systems, data, personnel, facilities, and third-party relationships that create, process, store, or transmit Vantage information — including production cloud infrastructure, corporate endpoints, source code, and any environment that handles customer or cardholder data.</p>
+
+  <h4 class="block">1.1.3 Security Objectives</h4>
+  <ol>
+    <li><strong>Protect regulated data.</strong> Personally identifiable information (PII) and cardholder data must be protected at rest and in transit to a standard consistent with SOC&nbsp;2, ISO&nbsp;27001, and PCI&nbsp;DSS v4.0 expectations.</li>
+    <li><strong>Assume no implicit trust.</strong> Access decisions must be based on verified identity, device posture, and least privilege — never on network location alone (see Section&nbsp;3).</li>
+    <li><strong>Detect and respond.</strong> The organization must be able to detect material security events and respond within defined severity-based timeframes (see Section&nbsp;4).</li>
+    <li><strong>Manage risk explicitly.</strong> Security decisions must be traceable to the enterprise risk register (Section&nbsp;2).</li>
+    <li><strong>Demonstrate compliance.</strong> The organization must maintain evidence sufficient to satisfy independent audit and customer due-diligence requests.</li>
+  </ol>
+
+  <h4 class="block">1.1.4 Policy Framework &amp; Hierarchy</h4>
+  <table class="compact">
+    <thead><tr><th style="width:20%">Tier</th><th style="width:26%">Document type</th><th>Examples in this program</th></tr></thead>
+    <tbody>
+      <tr><td>1 — Policy</td><td>Board-approved mandates</td><td>POL-SEC-001 (this document), POL-SEC-002 (Access Control), POL-SEC-003 (Third-Party Risk)</td></tr>
+      <tr><td>2 — Standard</td><td>Mandatory technical/process rules</td><td>Data Classification &amp; Handling Standard (STD-SEC-010)</td></tr>
+      <tr><td>3 — Procedure</td><td>Step-by-step operational guidance</td><td>Incident Response Plan (Section 4), Change Management runbook</td></tr>
+      <tr><td>4 — Guideline</td><td>Recommended practice</td><td>Secure coding guidelines, hardening baselines</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.1.5 Roles and Responsibilities</h4>
+  <table class="compact">
+    <thead><tr><th style="width:24%">Role</th><th>Security responsibility</th></tr></thead>
+    <tbody>
+      <tr><td>Board Security &amp; Technology Committee</td><td>Approves policy, accepts residual risk, approves security budget, receives quarterly posture reporting.</td></tr>
+      <tr><td>Chief Information Security Officer</td><td>Owns the program; maintains the risk register; reports posture to the board; accountable for incident response.</td></tr>
+      <tr><td>Chief Technology Officer</td><td>Accountable for secure engineering, patching, and remediation SLAs in production systems.</td></tr>
+      <tr><td>Engineering Managers</td><td>Ensure their teams comply with standards; own remediation of findings in their services.</td></tr>
+      <tr><td>All Personnel</td><td>Comply with policy; complete annual training; report suspected incidents immediately.</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.1.6 Policy Compliance &amp; Exceptions</h4>
+  <p>Compliance is monitored through automated control testing, internal audit, and third-party assessments. Any deviation requires a documented, time-bound exception approved by the CISO and recorded in the risk register with a compensating control. Exceptions are reviewed at least quarterly and expire automatically unless renewed.</p>
+
+  <div class="callout">
+    <span class="ct">Traceability</span>
+    This master policy anchors the program's top risks: objective&nbsp;2 addresses <strong>R-01, R-04, R-05, R-11</strong> (identity and network trust); objective&nbsp;3 addresses <strong>R-12</strong> (detection and response); objective&nbsp;1 addresses <strong>R-07</strong> (data protection); objective&nbsp;5 addresses <strong>R-08</strong> (compliance).
+  </div>
+</div>
+
+<!-- 1.2 -->
+<div class="section" id="s12">
+  <h3 class="block">1.2 Access Control Policy</h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:22%"><strong>Policy ID</strong></td><td>POL-SEC-002</td><td style="width:22%"><strong>Owner</strong></td><td>IAM Engineer (reporting to CISO)</td></tr>
+      <tr><td><strong>Supports risk</strong></td><td>R-01, R-05, R-10, R-11</td><td><strong>Review cycle</strong></td><td>Annual</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.2.1 Principles</h4>
+  <p>Access is granted on the principles of <strong>least privilege</strong>, <strong>separation of duties</strong>, and <strong>zero standing privilege</strong> for administrative functions. No account may hold more access than the task it performs requires, and no access is granted on the basis of network location.</p>
+
+  <h4 class="block">1.2.2 Mandatory Requirements</h4>
+  <ol>
+    <li><strong>Identity-first authentication.</strong> All access to Vantage systems authenticates through the central identity provider (IdP) with single sign-on. Local accounts are prohibited except for documented break-glass use.</li>
+    <li><strong>Phishing-resistant MFA.</strong> All workforce accounts and all administrative access to production require phishing-resistant multi-factor authentication (FIDO2/WebAuthn). Legacy SMS and push-only MFA are being retired. <span class="tag">R-01</span></li>
+    <li><strong>Just-in-time privileged access.</strong> Standing production administrator rights are prohibited. Elevated access is requested, approved, and time-boxed (maximum 8 hours), and every session is logged. <span class="tag">R-05</span></li>
+    <li><strong>Quarterly access reviews.</strong> System owners certify that all access remains necessary. Orphaned and excessive entitlements are removed within 5 business days of identification.</li>
+    <li><strong>Joiner-mover-leaver automation.</strong> Provisioning and de-provisioning are driven by the HR system of record; termination revokes access within 1 hour.</li>
+    <li><strong>Service account hygiene.</strong> Non-human identities are inventoried, owned, rotated, and never share credentials with humans. <span class="tag">R-10</span></li>
+    <li><strong>Device trust.</strong> Access to sensitive systems requires a managed, compliant device; unmanaged devices are denied. <span class="tag">R-11</span></li>
+  </ol>
+
+  <h4 class="block">1.2.3 Authentication Standards</h4>
+  <table class="compact">
+    <thead><tr><th style="width:30%">Access type</th><th style="width:26%">MFA requirement</th><th>Session rule</th></tr></thead>
+    <tbody>
+      <tr><td>Workforce (email, SaaS, corporate apps)</td><td>Phishing-resistant (FIDO2) required</td><td>12-hour max session; re-auth for sensitive actions</td></tr>
+      <tr><td>Production administrative</td><td>FIDO2 + JIT approval required</td><td>8-hour time-box; full session recording</td></tr>
+      <tr><td>Customer-facing portal</td><td>MFA required for all users</td><td>Risk-based step-up authentication</td></tr>
+      <tr><td>Third-party / vendor</td><td>Federated SSO, no shared accounts</td><td>Session tied to approved change window</td></tr>
+      <tr><td>Break-glass</td><td>Hardware key + dual approval</td><td>Auto-expires in 4 hours; alert on use</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 1.3 -->
+<div class="section" id="s13">
+  <h3 class="block">1.3 Data Classification &amp; Handling Standard</h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:22%"><strong>Standard ID</strong></td><td>STD-SEC-010</td><td style="width:22%"><strong>Owner</strong></td><td>GRC Analyst</td></tr>
+      <tr><td><strong>Supports risk</strong></td><td>R-04, R-07, R-08</td><td><strong>Review cycle</strong></td><td>Annual</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.3.1 Classification Tiers</h4>
+  <table class="compact">
+    <thead><tr><th style="width:16%">Tier</th><th style="width:30%">Definition</th><th>Handling requirements</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Restricted</strong></td><td>Regulated data: PII, cardholder data, authentication secrets, customer financial records.</td><td>Encrypted at rest (AES-256) and in transit (TLS 1.2+); access via least privilege; tokenized where feasible; DLP-monitored; no external sharing.</td></tr>
+      <tr><td><strong>Confidential</strong></td><td>Internal business data: source code, contracts, financials, security configurations.</td><td>Encrypted at rest; access on a need-to-know basis; approved collaboration tools only.</td></tr>
+      <tr><td><strong>Internal</strong></td><td>Operational data not intended for public release.</td><td>Standard access controls; no special encryption beyond platform defaults.</td></tr>
+      <tr><td><strong>Public</strong></td><td>Marketing, published documentation.</td><td>No handling restrictions; integrity controls only.</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.3.2 Data Lifecycle Controls</h4>
+  <p>Restricted data is subject to a documented lifecycle: <strong>collection</strong> (minimization and lawful basis), <strong>storage</strong> (encryption and residency), <strong>use</strong> (least privilege and monitoring), <strong>sharing</strong> (contractual controls and tokenization), <strong>retention</strong> (defined schedules), and <strong>disposal</strong> (cryptographic erasure and certificate of destruction). Data that has no assigned owner is treated as Restricted until classified.</p>
+
+  <div class="callout key">
+    <span class="ct">Design link</span>
+    This standard is the policy basis for the data-protection controls in the Zero Trust architecture (Section&nbsp;3.6) — specifically tokenization, DLP, and encryption-in-transit requirements that mitigate <strong>R-07</strong> (data exfiltration) and <strong>R-04</strong> (cloud misconfiguration).
+  </div>
+</div>
+
+<!-- 1.4 -->
+<div class="section" id="s14">
+  <h3 class="block">1.4 Third-Party Risk Management Policy</h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:22%"><strong>Policy ID</strong></td><td>POL-SEC-003</td><td style="width:22%"><strong>Owner</strong></td><td>GRC Analyst</td></tr>
+      <tr><td><strong>Supports risk</strong></td><td>R-02, R-08, R-13</td><td><strong>Review cycle</strong></td><td>Annual</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.4.1 Purpose</h4>
+  <p>Vantage depends on dozens of SaaS vendors, cloud providers, and subprocessors. This policy ensures that third-party risk is assessed, contracted, and monitored proportionate to the data and access each vendor receives — closing the supply-chain exposure identified as <strong>R-02</strong>.</p>
+
+  <h4 class="block">1.4.2 Vendor Tiering &amp; Due Diligence</h4>
+  <table class="compact">
+    <thead><tr><th style="width:16%">Tier</th><th style="width:30%">Criteria</th><th>Due diligence required</th></tr></thead>
+    <tbody>
+      <tr><td>Tier 1 — Critical</td><td>Processes Restricted data or has production access</td><td>SOC 2 Type II or ISO 27001 required; annual reassessment; security addendum; right-to-audit; breach notification ≤ 24h; named security contact.</td></tr>
+      <tr><td>Tier 2 — Important</td><td>Processes Confidential data; no production access</td><td>Completed security questionnaire; evidence of a security program; annual review.</td></tr>
+      <tr><td>Tier 3 — Standard</td><td>No sensitive data; low integration</td><td>Self-attestation; standard terms; review every 2 years.</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.4.3 Ongoing Monitoring</h4>
+  <p>Vantage maintains a live inventory of vendors and their data access, continuously monitors Tier&nbsp;1 vendors for breach disclosures and certificate/domain changes, and requires that any vendor with production access be covered by our own incident response process (Section&nbsp;4.7). Concentration risk — where multiple critical services depend on one provider — is tracked as a register item.</p>
+
+  <div class="callout">
+    <span class="ct">Why this matters here</span>
+    A vendor breach in Q1 2026 (a SaaS analytics provider) is the direct trigger for the elevated rating on <strong>R-02</strong> and the reason the board briefing names supply-chain compromise as a top risk.
+  </div>
+</div>
+
+<!-- 1.5 -->
+<div class="section" id="s15">
+  <h3 class="block">1.5 Security Governance Structure &amp; Roles</h3>
+  <p>Governance only works if accountability is named and cadence is fixed. Vantage operates a three-layer governance model.</p>
+
+  <table class="compact">
+    <thead><tr><th style="width:26%">Body</th><th style="width:20%">Cadence</th><th>Mandate</th></tr></thead>
+    <tbody>
+      <tr><td>Board Security &amp; Technology Committee</td><td>Quarterly</td><td>Oversees security strategy and risk appetite; approves policy and budget; accepts residual risk.</td></tr>
+      <tr><td>Security Steering Committee</td><td>Monthly</td><td>Cross-functional (CISO, CTO, CIO, Legal, Compliance, Product); prioritizes remediation and reviews the risk register.</td></tr>
+      <tr><td>Security Operations &amp; Engineering</td><td>Weekly</td><td>Executes controls, triages findings, runs incident readiness, and reports metrics.</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="block">1.5.1 Security Team Composition (current, October 2026)</h4>
+  <table class="compact">
+    <thead><tr><th style="width:34%">Role</th><th style="width:14%">FTE</th><th>Primary focus</th></tr></thead>
+    <tbody>
+      <tr><td>Chief Information Security Officer</td><td>1</td><td>Program ownership, board reporting, risk acceptance.</td></tr>
+      <tr><td>IAM Engineer</td><td>1</td><td>Identity, SSO, MFA, privileged access management.</td></tr>
+      <tr><td>Security Engineer (Cloud)</td><td>1</td><td>Cloud security posture, infrastructure hardening, Zero Trust build.</td></tr>
+      <tr><td>Security Engineer (AppSec)</td><td>1</td><td>Secure SDLC, API security, vulnerability management.</td></tr>
+      <tr><td>Detection Engineer</td><td>1</td><td>SIEM content, detection tuning, MDR coordination.</td></tr>
+      <tr><td>Security Analyst</td><td>1</td><td>Alert triage, incident coordination, on-call rotation.</td></tr>
+      <tr><td>GRC Analyst</td><td>1</td><td>Policy, risk register, audit, vendor risk.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Total in-house security headcount: <strong>7 (1 CISO + 6 practitioners)</strong>. The team does not operate a 24×7 in-house SOC; after-hours coverage is delivered by a managed detection and response (MDR) partner plus an on-call rotation (see Section&nbsp;4.2). This is a deliberate, funded design choice — not a gap — and the roadmap (Section&nbsp;6) preserves it while adding capacity.</p>
+
+  <h4 class="block">1.5.2 Key Governance Metrics Reported to the Board</h4>
+  <table class="compact">
+    <thead><tr><th style="width:40%">Metric</th><th style="width:20%">Current</th><th>Target (FY27)</th></tr></thead>
+    <tbody>
+      <tr><td>High risks open in register</td><td>6</td><td>≤ 2</td></tr>
+      <tr><td>Phishing-resistant MFA coverage (workforce)</td><td>78%</td><td>100%</td></tr>
+      <tr><td>Endpoint EDR coverage</td><td>95%</td><td>100%</td></tr>
+      <tr><td>Critical vulnerabilities remediated ≤ 15 days</td><td>82%</td><td>98%</td></tr>
+      <tr><td>Mean time to detect (MTTD), high severity</td><td>~6 hours</td><td>≤ 1 hour</td></tr>
+      <tr><td>Annual security awareness completion</td><td>94%</td><td>100%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script><!-- ============================ SECTION 2: RISK REGISTER ============================ -->
+<div class="section" id="sec2">
+  <div class="section-head">
+    <span class="num">SECTION 2</span>
+    <h2>Enterprise Risk Register</h2>
+    <div class="lede">The single source of truth for the program — fifteen scored risks that give governance, architecture, response, and funding a shared vocabulary.</div>
+  </div>
+
+  <p>Every other section of this portfolio points back to this register. When the architecture removes implicit network trust, it is mitigating a specific risk ID. When the incident response plan assumes a forensic retainer is on standby, it is relying on a control that exists because a risk ID required it. When the board briefing asks for money, it names the risk IDs that money closes. The register is therefore not a compliance artifact filed away for auditors — it is the operating spine of the program.</p>
+
+  <h3 class="block">2.1 Methodology</h3>
+  <p>Risks are identified through threat modeling, incident post-mortems, audit findings, vendor assessments, and industry threat intelligence. Each risk is scored on a 5×5 likelihood × impact matrix, owned by a named accountable executive, and reviewed at least quarterly by the Security Steering Committee. Scores reflect <strong>inherent</strong> exposure given current controls; residual exposure after planned treatment is tracked separately.</p>
+
+  <div class="two-col">
+    <div>
+      <h4>Likelihood scale</h4>
+      <table class="compact">
+        <tbody>
+          <tr><td><strong>5</strong></td><td>Almost certain (multiple times/year)</td></tr>
+          <tr><td><strong>4</strong></td><td>Likely (annual)</td></tr>
+          <tr><td><strong>3</strong></td><td>Possible (every 1–3 years)</td></tr>
+          <tr><td><strong>2</strong></td><td>Unlikely (every 3–5 years)</td></tr>
+          <tr><td><strong>1</strong></td><td>Rare (&gt; 5 years)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4>Impact scale</h4>
+      <table class="compact">
+        <tbody>
+          <tr><td><strong>5</strong></td><td>Severe — regulatory action, &gt;$5M, existential</td></tr>
+          <tr><td><strong>4</strong></td><td>Major — customer loss, $1–5M, material downtime</td></tr>
+          <tr><td><strong>3</strong></td><td>Moderate — $250K–1M, contained disruption</td></tr>
+          <tr><td><strong>2</strong></td><td>Minor — &lt;$250K, limited impact</td></tr>
+          <tr><td><strong>1</strong></td><td>Negligible — no material impact</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="small"><strong>Rating bands:</strong> <span class="badge b-high">High</span> score 15–25 &nbsp;·&nbsp; <span class="badge b-med">Medium</span> score 8–14 &nbsp;·&nbsp; <span class="badge b-low">Low</span> score 1–7.</p>
+
+  <h3 class="block">2.2 The Register (as of October 2026)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:7%">ID</th>
+        <th style="width:31%">Risk statement</th>
+        <th style="width:13%">Category</th>
+        <th style="width:4%">L</th>
+        <th style="width:4%">I</th>
+        <th style="width:6%">Score</th>
+        <th style="width:9%">Rating</th>
+        <th style="width:16%">Accountable owner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>R-01</strong></td><td>Phishing or credential compromise enables account takeover of workforce or customer accounts.</td><td>Identity</td><td>4</td><td>4</td><td>16</td><td><span class="badge b-high">High</span></td><td>CISO</td></tr>
+      <tr><td><strong>R-02</strong></td><td>Compromise of a third-party vendor or software supply chain exposes Vantage or customer data.</td><td>Supply chain</td><td>3</td><td>5</td><td>15</td><td><span class="badge b-high">High</span></td><td>GRC Analyst / CISO</td></tr>
+      <tr><td><strong>R-03</strong></td><td>Ransomware or destructive malware on corporate endpoints or cloud workloads halts operations.</td><td>Malware</td><td>3</td><td>4</td><td>12</td><td><span class="badge b-med">Medium</span></td><td>Security Engineer (Cloud)</td></tr>
+      <tr><td><strong>R-04</strong></td><td>Cloud misconfiguration (storage, IAM, network) exposes regulated data or enables lateral movement.</td><td>Cloud</td><td>4</td><td>4</td><td>16</td><td><span class="badge b-high">High</span></td><td>Security Engineer (Cloud)</td></tr>
+      <tr><td><strong>R-05</strong></td><td>Insider threat or misuse of privileged access leads to data theft or sabotage.</td><td>Insider</td><td>2</td><td>5</td><td>10</td><td><span class="badge b-med">Medium</span></td><td>IAM Engineer</td></tr>
+      <tr><td><strong>R-06</strong></td><td>Broken access control or abuse of public APIs allows unauthorized data access.</td><td>Application</td><td>3</td><td>4</td><td>12</td><td><span class="badge b-med">Medium</span></td><td>Security Engineer (AppSec)</td></tr>
+      <tr><td><strong>R-07</strong></td><td>Exfiltration of PII or cardholder data results in regulatory penalty, customer loss, and reputational harm.</td><td>Data</td><td>3</td><td>5</td><td>15</td><td><span class="badge b-high">High</span></td><td>CISO</td></tr>
+      <tr><td><strong>R-08</strong></td><td>Failure to maintain SOC 2 / ISO 27001 / PCI DSS compliance blocks enterprise deals or triggers findings.</td><td>Compliance</td><td>3</td><td>4</td><td>12</td><td><span class="badge b-med">Medium</span></td><td>GRC Analyst</td></tr>
+      <tr><td><strong>R-09</strong></td><td>DDoS or availability failure of the platform breaches customer SLAs.</td><td>Availability</td><td>3</td><td>3</td><td>9</td><td><span class="badge b-med">Medium</span></td><td>CTO</td></tr>
+      <tr><td><strong>R-10</strong></td><td>Secrets sprawl (hardcoded credentials, exposed keys) enables unauthorized system access.</td><td>Identity / Dev</td><td>3</td><td>4</td><td>12</td><td><span class="badge b-med">Medium</span></td><td>Security Engineer (AppSec)</td></tr>
+      <tr><td><strong>R-11</strong></td><td>Shadow IT or unmanaged devices bypass security controls and introduce unmonitored exposure.</td><td>Asset mgmt</td><td>2</td><td>3</td><td>6</td><td><span class="badge b-low">Low</span></td><td>IAM Engineer</td></tr>
+      <tr><td><strong>R-12</strong></td><td>Inadequate detection and response capability allows a breach to persist undetected (long MTTD/MTTR).</td><td>Detection / IR</td><td>4</td><td>4</td><td>16</td><td><span class="badge b-high">High</span></td><td>CISO</td></tr>
+      <tr><td><strong>R-13</strong></td><td>Business email compromise or payment fraud diverts funds or triggers unauthorized transactions.</td><td>Fraud</td><td>3</td><td>4</td><td>12</td><td><span class="badge b-med">Medium</span></td><td>CFO / CISO</td></tr>
+      <tr><td><strong>R-14</strong></td><td>Exploitation of an unpatched vulnerability in production or third-party software leads to compromise.</td><td>Vulnerability</td><td>4</td><td>4</td><td>16</td><td><span class="badge b-high">High</span></td><td>CTO</td></tr>
+      <tr><td><strong>R-15</strong></td><td>Key-person dependency or security skills gap leaves critical controls unmaintained.</td><td>People</td><td>2</td><td>3</td><td>6</td><td><span class="badge b-low">Low</span></td><td>CISO</td></tr>
+    </tbody>
+  </table>
+  <p class="footer-note">Six risks are rated High: R-01, R-02, R-04, R-07, R-12, R-14. These are the risks carried into the board briefing (Section 5) and the risks the FY27 roadmap (Section 6) is explicitly funded to reduce.</p>
+
+  <h3 class="block">2.3 Risk Heat Map</h3>
+  <table class="heat">
+    <thead>
+      <tr><th style="width:14%">Impact ↓ / Likelihood →</th><th>1 — Rare</th><th>2 — Unlikely</th><th>3 — Possible</th><th>4 — Likely</th><th>5 — Almost certain</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lbl">5 — Severe</td>
+        <td class="l2"></td>
+        <td class="l3 cell">R-05</td>
+        <td class="l4 cell">R-02, R-07</td>
+        <td class="l5"></td>
+        <td class="l5"></td>
+      </tr>
+      <tr>
+        <td class="lbl">4 — Major</td>
+        <td class="l2"></td>
+        <td class="l2"></td>
+        <td class="l3 cell">R-03, R-06<br>R-08, R-10, R-13</td>
+        <td class="l4 cell">R-01, R-04<br>R-12, R-14</td>
+        <td class="l5"></td>
+      </tr>
+      <tr>
+        <td class="lbl">3 — Moderate</td>
+        <td class="l1"></td>
+        <td class="l2 cell">R-11, R-15</td>
+        <td class="l3 cell">R-09</td>
+        <td class="l3"></td>
+        <td class="l4"></td>
+      </tr>
+      <tr>
+        <td class="lbl">2 — Minor</td>
+        <td class="l1"></td>
+        <td class="l1"></td>
+        <td class="l2"></td>
+        <td class="l2"></td>
+        <td class="l3"></td>
+      </tr>
+      <tr>
+        <td class="lbl">1 — Negligible</td>
+        <td class="l1"></td>
+        <td class="l1"></td>
+        <td class="l1"></td>
+        <td class="l1"></td>
+        <td class="l2"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footer-note">The upper-right quadrant (High band) concentrates the program's attention: identity (R-01), supply chain (R-02), cloud (R-04), data (R-07), detection (R-12), and vulnerability management (R-14).</p>
+</div>
+
+<!-- 2.4 Treatment -->
+<div class="section">
+  <h3 class="block">2.4 Treatment Plans</h3>
+  <p>Each High and Medium risk carries a treatment plan with an owner, a target date, and a link to the architecture or roadmap item that delivers the mitigation. Low risks are accepted and monitored.</p>
+  <table>
+    <thead>
+      <tr><th style="width:7%">ID</th><th style="width:26%">Existing controls today</th><th style="width:38%">Planned treatment (FY27)</th><th style="width:16%">Delivered by</th><th style="width:13%">Target</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>R-01</strong></td><td>SSO, push MFA (78% phishing-resistant), awareness training, email filtering.</td><td>Complete FIDO2 rollout to 100%; conditional access; number-matching MFA; simulated-phishing program.</td><td>Section 3.2 (Identity); Roadmap Q1–Q2</td><td>Q2 FY27</td></tr>
+      <tr><td><strong>R-02</strong></td><td>Vendor tiering policy, annual Tier-1 reassessment, contract clauses.</td><td>Continuous vendor monitoring; SBOM ingestion; expansion of right-to-audit; fourth-party mapping.</td><td>Section 3.7; Roadmap Q3–Q4</td><td>Q4 FY27</td></tr>
+      <tr><td><strong>R-03</strong></td><td>EDR on 95% endpoints, email filtering, immutable backups.</td><td>100% EDR; ransomware-specific playbook (Section 4.5); backup restoration testing.</td><td>Section 4.5; Roadmap Q1</td><td>Q1 FY27</td></tr>
+      <tr><td><strong>R-04</strong></td><td>AWS Config rules, quarterly manual review, IaC scanning.</td><td>CSPM deployment; policy-as-code guardrails; automated drift remediation.</td><td>Section 3.5; Roadmap Q1–Q2</td><td>Q2 FY27</td></tr>
+      <tr><td><strong>R-05</strong></td><td>Least privilege, quarterly access reviews, PAM pilot.</td><td>Full JIT privileged access; session recording; UEBA alerting.</td><td>Section 3.3; Roadmap Q2–Q3</td><td>Q3 FY27</td></tr>
+      <tr><td><strong>R-06</strong></td><td>API gateway, OAuth2, annual pen test.</td><td>Automated API authZ testing in CI/CD; runtime API protection; expanded pen testing.</td><td>Section 3.4; Roadmap Q2–Q3</td><td>Q3 FY27</td></tr>
+      <tr><td><strong>R-07</strong></td><td>Encryption at rest/in transit, tokenization of card data, partial DLP.</td><td>Enterprise DLP; data-access governance; exfiltration alerting; DSAR automation.</td><td>Section 3.6; Roadmap Q1–Q3</td><td>Q3 FY27</td></tr>
+      <tr><td><strong>R-08</strong></td><td>SOC 2 Type II current; ISO 27001 gap analysis complete.</td><td>ISO 27001 certification; PCI DSS v4.0 assessment; unified control evidence library.</td><td>Section 6 (Roadmap)</td><td>Q2–Q4 FY27</td></tr>
+      <tr><td><strong>R-09</strong></td><td>AWS Shield, CDN, autoscaling, DR region.</td><td>DDoS response runbook; load-testing cadence; SLA dashboard.</td><td>Roadmap Q3</td><td>Q3 FY27</td></tr>
+      <tr><td><strong>R-10</strong></td><td>Partial secrets scanning, code review.</td><td>Central secrets manager; pre-commit scanning; automated rotation; CI/CD gating.</td><td>Section 3.8; Roadmap Q1–Q2</td><td>Q2 FY27</td></tr>
+      <tr><td><strong>R-11</strong></td><td>MDM on managed devices, SSO-only access.</td><td>Device-posture checks in conditional access; SaaS discovery.</td><td>Section 3.2; Roadmap Q3</td><td>Q3 FY27</td></tr>
+      <tr><td><strong>R-12</strong></td><td>MDR partner, SIEM, on-call rotation, v1 playbooks.</td><td>SOAR automation; threat-hunting program; MTTD reduction to ≤ 1 hour; third security engineer.</td><td>Section 4; Roadmap Q1–Q4</td><td>Q4 FY27</td></tr>
+      <tr><td><strong>R-13</strong></td><td>Email authentication (DMARC), dual approval for payments.</td><td>BEC-specific detections; payment-change verification workflow; finance awareness training.</td><td>Section 4.6; Roadmap Q2</td><td>Q2 FY27</td></tr>
+      <tr><td><strong>R-14</strong></td><td>Monthly vulnerability scans, patch SLAs, dependency scanning.</td><td>Continuous scanning; risk-based patch SLAs; internet-facing attack-surface management.</td><td>Section 3.9; Roadmap Q1–Q2</td><td>Q2 FY27</td></tr>
+      <tr><td><strong>R-15</strong></td><td>Cross-training, documented runbooks.</td><td>Third security engineer hire; expanded cross-training; managed-service coverage for key roles.</td><td>Roadmap Q2</td><td>Q2 FY27</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout key">
+    <span class="ct">Risk appetite statement</span>
+    Vantage accepts <strong>Low</strong> residual risk without further investment, tolerates <strong>Medium</strong> residual risk under active monitoring, and does not accept <strong>High</strong> residual risk beyond a defined remediation window. The FY27 roadmap exists to move all six High risks to a Medium or lower residual rating within the fiscal year.
+  </div>
+</div>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script><!-- ============================ SECTION 3: ZERO TRUST ARCHITECTURE ============================ -->
+<div class="section" id="sec3">
+  <div class="section-head">
+    <span class="num">SECTION 3</span>
+    <h2>Zero Trust Architecture</h2>
+    <div class="lede">How Vantage defends — removing implicit network trust and making every access decision identity-, device-, and context-aware.</div>
+  </div>
+
+  <p>Vantage's architecture is built on a single organizing idea: <strong>no user, device, or workload is trusted by virtue of where it sits on the network.</strong> Trust is never granted once and assumed thereafter; it is evaluated continuously for every request, using verified identity, device posture, and context. This is not a product we buy — it is a set of design decisions, each of which exists to reduce a specific risk in the register. The sections below describe each pillar and, critically, name the risk IDs it addresses.</p>
+
+  <h3 class="block">3.1 Design Principles</h3>
+  <ol>
+    <li><strong>Verify explicitly.</strong> Every access request is authenticated and authorized using all available signals — identity, device health, location, and behavior.</li>
+    <li><strong>Use least privilege.</strong> Access is scoped to the minimum necessary and time-boxed; standing privilege is eliminated for administrative functions.</li>
+    <li><strong>Assume breach.</strong> The architecture assumes an adversary may already be inside; segmentation, encryption, and monitoring are designed to limit blast radius and shorten dwell time.</li>
+    <li><strong>Never trust the network.</strong> The corporate network is treated as hostile; the same controls apply whether a request originates from the office, home, or a public network.</li>
+    <li><strong>Make decisions traceable.</strong> Every control maps to a risk ID, so the architecture can be justified to auditors and the board.</li>
+  </ol>
+
+  <h3 class="block">3.2 Pillar 1 — Identity <span class="tag">R-01</span> <span class="tag">R-11</span></h3>
+  <p>Identity is the new perimeter. All workforce and customer access flows through a central identity provider with single sign-on, and the strength of authentication scales with the sensitivity of the resource.</p>
+  <ul>
+    <li><strong>Phishing-resistant MFA (FIDO2/WebAuthn)</strong> is mandatory for workforce and administrative access; push-only and SMS factors are being retired. This directly attacks the credential-phishing vector behind <strong>R-01</strong>.</li>
+    <li><strong>Conditional access</strong> evaluates device compliance, location, and risk score before granting a session; unmanaged devices are denied access to Restricted data, mitigating <strong>R-11</strong>.</li>
+    <li><strong>Continuous evaluation</strong> re-assesses sessions on risk signals (impossible travel, token theft indicators) rather than trusting a session for its full lifetime.</li>
+  </ul>
+
+  <h3 class="block">3.3 Pillar 2 — Devices &amp; Privileged Access <span class="tag">R-05</span></h3>
+  <p>Endpoints are inventoried, hardened, and continuously assessed for compliance. Administrative access to production is never standing.</p>
+  <ul>
+    <li><strong>Endpoint detection and response (EDR)</strong> is deployed on 95% of endpoints today, moving to 100%, providing telemetry that feeds detection (Section 4).</li>
+    <li><strong>Just-in-time (JIT) privileged access</strong> replaces standing admin rights: elevation is requested, approved, time-boxed to a maximum of 8 hours, and fully session-recorded. This is the primary control against <strong>R-05</strong> (privileged misuse).</li>
+    <li><strong>Break-glass accounts</strong> are hardware-key protected, dual-approved, auto-expiring, and generate immediate alerts on use.</li>
+  </ul>
+
+  <h3 class="block">3.4 Pillar 3 — Application &amp; API <span class="tag">R-06</span></h3>
+  <p>Vantage is an API-first platform, so application-layer access control is a first-class concern.</p>
+  <ul>
+    <li><strong>Central API gateway</strong> enforces authentication, rate limiting, and schema validation on every public endpoint.</li>
+    <li><strong>Object-level authorization</strong> is tested automatically in CI/CD to catch broken access control before release — the root cause class behind <strong>R-06</strong>.</li>
+    <li><strong>Secure SDLC</strong> integrates static analysis, dependency scanning, and IaC scanning into every pipeline; no build reaches production without passing security gates.</li>
+  </ul>
+
+  <h3 class="block">3.5 Pillar 4 — Network &amp; Cloud <span class="tag">R-04</span></h3>
+  <p>The network is segmented and the cloud is continuously checked against a hardened baseline.</p>
+  <ul>
+    <li><strong>Microsegmentation</strong> separates production, corporate, and development environments; east-west traffic is denied by default.</li>
+    <li><strong>Zero Trust Network Access (ZTNA)</strong> replaces the legacy VPN, granting per-application access rather than broad network reach.</li>
+    <li><strong>Cloud security posture management (CSPM)</strong> continuously detects misconfiguration (open storage, over-permissive IAM, exposed services) and drives automated remediation — the core control for <strong>R-04</strong>.</li>
+    <li><strong>Policy-as-code guardrails</strong> prevent non-compliant infrastructure from being deployed in the first place.</li>
+  </ul>
+
+  <h3 class="block">3.6 Pillar 5 — Data <span class="tag">R-07</span></h3>
+  <p>Data protection follows the classification standard (Section 1.3) and assumes the perimeter will eventually be crossed.</p>
+  <ul>
+    <li><strong>Encryption</strong> of Restricted data at rest (AES-256) and in transit (TLS 1.2+), with keys managed in a dedicated key service.</li>
+    <li><strong>Tokenization</strong> of cardholder data so that production systems never store raw PANs.</li>
+    <li><strong>Enterprise DLP</strong> and data-access governance detect and alert on anomalous exfiltration patterns — the detection layer for <strong>R-07</strong>.</li>
+  </ul>
+
+  <h3 class="block">3.7 Pillar 6 — Third-Party &amp; Supply Chain <span class="tag">R-02</span></h3>
+  <ul>
+    <li><strong>Continuous vendor monitoring</strong> replaces point-in-time annual reviews for Tier-1 vendors.</li>
+    <li><strong>Software bills of materials (SBOM)</strong> are ingested for critical dependencies, enabling rapid impact assessment when an upstream library is compromised.</li>
+    <li><strong>Least-privilege integration</strong> ensures vendors receive scoped, revocable access rather than broad API keys.</li>
+  </ul>
+
+  <h3 class="block">3.8 Pillar 7 — Secrets &amp; Developer Security <span class="tag">R-10</span></h3>
+  <ul>
+    <li><strong>Central secrets manager</strong> with automated rotation replaces hardcoded credentials.</li>
+    <li><strong>Pre-commit and CI scanning</strong> block secrets from entering repositories; leaked keys trigger automatic revocation.</li>
+    <li><strong>Non-human identity inventory</strong> ensures every service account has an owner and a rotation policy.</li>
+  </ul>
+
+  <h3 class="block">3.9 Pillar 8 — Vulnerability &amp; Attack-Surface Management <span class="tag">R-14</span></h3>
+  <ul>
+    <li><strong>Continuous vulnerability scanning</strong> across cloud workloads, containers, and endpoints, replacing monthly point scans.</li>
+    <li><strong>Risk-based patch SLAs</strong>: critical (internet-facing) within 15 days, high within 30, medium within 90.</li>
+    <li><strong>External attack-surface management</strong> continuously discovers exposed assets and unknown internet-facing services.</li>
+  </ul>
+</div>
+
+<!-- 3.10 current vs target + diagram -->
+<div class="section">
+  <h3 class="block">3.10 Architecture at a Glance</h3>
+  <div class="arch">
+    <div class="layer">
+      <div class="lt">Identity &amp; Access Layer</div>
+      <div class="ld">Central IdP · SSO · FIDO2 phishing-resistant MFA · conditional access · continuous evaluation</div>
+      <div class="pillars"><span class="pill">R-01</span><span class="pill">R-11</span><span class="pill">R-05</span></div>
+    </div>
+    <div class="layer">
+      <div class="lt">Device &amp; Endpoint Layer</div>
+      <div class="ld">EDR (95%→100%) · MDM · device-posture checks · JIT privileged access · session recording</div>
+      <div class="pillars"><span class="pill">R-05</span><span class="pill">R-03</span></div>
+    </div>
+    <div class="layer">
+      <div class="lt">Application &amp; API Layer</div>
+      <div class="ld">API gateway · object-level authZ testing · secure SDLC gates · runtime API protection</div>
+      <div class="pillars"><span class="pill">R-06</span><span class="pill">R-10</span></div>
+    </div>
+    <div class="layer">
+      <div class="lt">Network &amp; Cloud Layer</div>
+      <div class="ld">Microsegmentation · ZTNA (VPN retired) · CSPM · policy-as-code · default-deny east-west</div>
+      <div class="pillars"><span class="pill">R-04</span><span class="pill">R-09</span></div>
+    </div>
+    <div class="layer">
+      <div class="lt">Data Layer</div>
+      <div class="ld">AES-256 at rest · TLS 1.2+ in transit · tokenization · DLP · data-access governance</div>
+      <div class="pillars"><span class="pill">R-07</span></div>
+    </div>
+    <div class="layer">
+      <div class="lt">Third-Party &amp; Supply-Chain Layer</div>
+      <div class="ld">Continuous vendor monitoring · SBOM ingestion · least-privilege integration</div>
+      <div class="pillars"><span class="pill">R-02</span></div>
+    </div>
+    <div class="layer">
+      <div class="lt">Visibility, Detection &amp; Response Layer</div>
+      <div class="ld">SIEM · MDR partner · SOAR · threat hunting · IR plan (Section 4)</div>
+      <div class="pillars"><span class="pill">R-12</span><span class="pill">R-14</span></div>
+    </div>
+  </div>
+
+  <h3 class="block">3.11 Current vs. Target State</h3>
+  <table>
+    <thead><tr><th style="width:20%">Pillar</th><th style="width:32%">Current state (Oct 2026)</th><th style="width:32%">Target state (end FY27)</th><th style="width:16%">Risk closed</th></tr></thead>
+    <tbody>
+      <tr><td>Identity</td><td>SSO everywhere; 78% phishing-resistant MFA</td><td>100% FIDO2; conditional access on all Restricted data</td><td>R-01, R-11</td></tr>
+      <tr><td>Privileged access</td><td>Least privilege; PAM pilot</td><td>Full JIT access; session recording; UEBA</td><td>R-05</td></tr>
+      <tr><td>Application/API</td><td>Gateway + annual pen test</td><td>Automated authZ testing; runtime protection</td><td>R-06</td></tr>
+      <tr><td>Network/Cloud</td><td>Config rules; manual review</td><td>CSPM + policy-as-code; automated remediation</td><td>R-04</td></tr>
+      <tr><td>Data</td><td>Encryption; tokenization; partial DLP</td><td>Enterprise DLP; exfiltration alerting</td><td>R-07</td></tr>
+      <tr><td>Third party</td><td>Annual Tier-1 review</td><td>Continuous monitoring; SBOM ingestion</td><td>R-02</td></tr>
+      <tr><td>Secrets</td><td>Partial scanning</td><td>Central secrets manager; auto-rotation</td><td>R-10</td></tr>
+      <tr><td>Vulnerability</td><td>Monthly scans</td><td>Continuous scanning; attack-surface mgmt</td><td>R-14</td></tr>
+      <tr><td>Detection/IR</td><td>MDR + SIEM + on-call</td><td>SOAR + threat hunting; MTTD ≤ 1h</td><td>R-12</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="ct">Traceability check</span>
+    Every pillar above names the register risk IDs it addresses. No architecture control in this section exists without a corresponding risk in Section&nbsp;2 — and no High risk in Section&nbsp;2 lacks a corresponding architecture or roadmap treatment.
+  </div>
+</div>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script><!-- ============================ SECTION 4: INCIDENT RESPONSE PLAN ============================ -->
+<div class="section" id="sec4">
+  <div class="section-head">
+    <span class="num">SECTION 4</span>
+    <h2>Incident Response Plan</h2>
+    <div class="lede">How Vantage responds — a NIST SP 800-61-aligned plan that assumes only the capabilities the program actually operates today.</div>
+  </div>
+
+  <p>An incident response plan is only credible if it reflects reality. A plan that assumes a 24×7 in-house SOC, a fully automated SOAR platform, or a forensic team on payroll would be fiction — and fiction collapses the first time it meets a real incident. This plan is deliberately grounded: it describes exactly the detection and response capabilities Vantage operates in October 2026, and it flags the capabilities still being built so that no assumption is silently unfunded. Section&nbsp;6 confirms that every "operational today" claim below is already paid for, and that every future capability is on the roadmap.</p>
+
+  <h3 class="block">4.1 Purpose &amp; Scope</h3>
+  <p>This plan defines how Vantage detects, contains, eradicates, and recovers from security incidents, and how it communicates during them. It applies to all production systems, corporate systems, and third parties with access to Vantage data. It is aligned to <strong>NIST SP 800-61</strong> (Computer Security Incident Handling Guide) and supports the detection/response objective of the master policy (Section&nbsp;1.1) and risk <strong>R-12</strong>.</p>
+
+  <h3 class="block">4.2 Operating Model — What Is Operational Today</h3>
+  <table>
+    <thead><tr><th style="width:30%">Capability</th><th style="width:14%">Status</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Managed detection &amp; response (MDR) partner</td><td><span class="badge b-teal">Operational</span></td><td>Onboarded Q4 2025. Provides 24×7 monitoring and first-line triage of EDR, cloud, and identity telemetry.</td></tr>
+      <tr><td>SIEM</td><td><span class="badge b-teal">Operational</span></td><td>Cloud-native SIEM ingesting identity, endpoint, cloud, and application logs.</td></tr>
+      <tr><td>EDR</td><td><span class="badge b-teal">Operational</span></td><td>Deployed on 95% of endpoints (target 100% by Q1 FY27).</td></tr>
+      <tr><td>Forensic retainer</td><td><span class="badge b-teal">Operational</span></td><td>Signed Q1 2026 with an external digital-forensics and incident-response (DFIR) firm; guaranteed response within 4 hours of engagement.</td></tr>
+      <tr><td>On-call rotation</td><td><span class="badge b-teal">Operational</span></td><td>Security analyst on-call outside business hours; MDR escalates to on-call. <strong>This is a rotation, not a 24×7 in-house SOC.</strong></td></tr>
+      <tr><td>Core playbooks (v1)</td><td><span class="badge b-teal">Operational</span></td><td>Phishing, ransomware, and data-breach playbooks are documented and rehearsed.</td></tr>
+      <tr><td>SOAR automation</td><td><span class="badge b-info">In build</span></td><td>Not yet operational. Playbook steps are executed <strong>manually</strong> by the on-call analyst until SOAR phase&nbsp;1 lands (Roadmap Q3 FY27).</td></tr>
+      <tr><td>Dedicated threat hunting</td><td><span class="badge b-info">In build</span></td><td>Not yet operational; delivered in FY27 alongside the third security engineer hire (Roadmap Q1–Q2 FY27).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <span class="ct">Consistency guardrail</span>
+    This plan does <strong>not</strong> assume SOAR automation or a dedicated threat-hunting team, because neither is operational today. Where automation would normally apply, the plan specifies manual execution. The FY27 roadmap (Section&nbsp;6) funds both capabilities; until they are live, this document describes the manual fallback.
+  </div>
+
+  <h3 class="block">4.3 Severity Classification</h3>
+  <table class="compact">
+    <thead><tr><th style="width:12%">Severity</th><th style="width:38%">Definition</th><th style="width:22%">Response target</th><th>Escalation</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge b-high">SEV-1</span></td><td>Confirmed breach of Restricted data, active ransomware, or platform-wide outage.</td><td>Acknowledge ≤ 15 min; contain ≤ 1 hr</td><td>CISO, CEO, Legal, Board Chair immediately</td></tr>
+      <tr><td><span class="badge b-high">SEV-2</span></td><td>Confirmed compromise of a system or account without confirmed data loss.</td><td>Acknowledge ≤ 30 min; contain ≤ 4 hr</td><td>CISO, CTO, Legal</td></tr>
+      <tr><td><span class="badge b-med">SEV-3</span></td><td>Suspected compromise or contained malware; limited impact.</td><td>Acknowledge ≤ 2 hr; contain ≤ 24 hr</td><td>Security lead, affected system owner</td></tr>
+      <tr><td><span class="badge b-low">SEV-4</span></td><td>Policy violation, low-risk alert, or unsuccessful attack.</td><td>Triage ≤ 1 business day</td><td>Security analyst</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">4.4 Incident Response Lifecycle (NIST SP 800-61)</h3>
+  <table>
+    <thead><tr><th style="width:20%">Phase</th><th>Key activities</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Preparation</strong></td><td>Maintain playbooks, run quarterly tabletop exercises, keep the forensic retainer current, ensure EDR/SIEM coverage, and train the on-call rotation.</td></tr>
+      <tr><td><strong>2. Detection &amp; Analysis</strong></td><td>MDR and SIEM generate alerts; the on-call analyst validates, scopes, and assigns severity. Indicators are enriched with threat intelligence before escalation.</td></tr>
+      <tr><td><strong>3. Containment</strong></td><td>Isolate affected hosts, revoke credentials/tokens, and block malicious infrastructure. Short-term containment first, then a longer-term strategy to preserve evidence.</td></tr>
+      <tr><td><strong>4. Eradication</strong></td><td>Remove adversary presence, patch the exploited vulnerability, and eliminate persistence mechanisms. The DFIR retainer is engaged for SEV-1/SEV-2.</td></tr>
+      <tr><td><strong>5. Recovery</strong></td><td>Restore systems from known-good backups, validate integrity, and monitor closely for re-infection before returning to normal operations.</td></tr>
+      <tr><td><strong>6. Post-Incident Activity</strong></td><td>Conduct a blameless post-mortem within 10 business days, capture lessons learned, update playbooks and the risk register, and report metrics to the Steering Committee.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">4.5 Playbooks</h3>
+  <table class="compact">
+    <thead><tr><th style="width:24%">Playbook</th><th style="width:12%">Addresses</th><th>Trigger &amp; first actions</th></tr></thead>
+    <tbody>
+      <tr><td>Phishing / account takeover</td><td>R-01</td><td>Reported or detected phishing → quarantine message, revoke sessions, force credential reset, hunt for related sign-ins. (Manual steps today; SOAR-assisted in FY27.)</td></tr>
+      <tr><td>Ransomware / destructive malware</td><td>R-03</td><td>EDR detection → isolate endpoint, disable affected accounts, verify backup integrity, engage DFIR retainer. <em>Backup restoration testing is added in Roadmap Q1.</em></td></tr>
+      <tr><td>Data breach / exfiltration</td><td>R-07</td><td>DLP or anomalous-egress alert → contain, preserve evidence, determine data scope, engage Legal for notification analysis.</td></tr>
+      <tr><td>Cloud misconfiguration exposure</td><td>R-04</td><td>CSPM finding or report → restrict access, rotate exposed credentials, assess whether data was accessed, remediate the baseline.</td></tr>
+      <tr><td>Business email compromise / fraud</td><td>R-13</td><td>Suspicious payment change or wire request → freeze transaction, verify out-of-band, notify Finance and bank.</td></tr>
+      <tr><td>Third-party breach</td><td>R-02</td><td>Vendor notification → assess data exposure, revoke vendor access, coordinate joint response under contract terms.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">4.6 Roles &amp; Responsibilities (RACI summary)</h3>
+  <table class="compact">
+    <thead><tr><th style="width:26%">Function</th><th>Responsibility during an incident</th></tr></thead>
+    <tbody>
+      <tr><td>Incident Commander (CISO or delegate)</td><td>Owns the incident end-to-end; makes containment and escalation decisions; single point of accountability.</td></tr>
+      <tr><td>Security Analyst (on-call)</td><td>First responder; triage, scoping, and execution of playbook steps (manual until SOAR is live).</td></tr>
+      <tr><td>MDR Partner</td><td>24×7 monitoring and first-line triage; escalates confirmed incidents to on-call.</td></tr>
+      <tr><td>DFIR Retainer</td><td>Deep forensics and root-cause analysis for SEV-1/SEV-2.</td></tr>
+      <tr><td>Engineering / SRE</td><td>System isolation, recovery, and remediation.</td></tr>
+      <tr><td>Legal &amp; Compliance</td><td>Regulatory notification analysis, privilege, and customer/regulator communications.</td></tr>
+      <tr><td>Communications</td><td>Internal and external messaging, coordinated with Legal.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">4.7 Communications &amp; Notification</h3>
+  <p>Vantage maintains a documented notification matrix. Material incidents trigger internal escalation to the CISO and CEO, and — where Restricted data is implicated — Legal assesses obligations to customers, regulators, and affected individuals. Contractual breach-notification clauses (Section&nbsp;1.4) require Tier-1 vendors to notify Vantage within 24 hours. Regulatory and customer notification timelines are tracked against the requirements of SOC&nbsp;2, PCI&nbsp;DSS, and applicable state privacy laws (R-08).</p>
+
+  <h3 class="block">4.8 Metrics</h3>
+  <table class="compact">
+    <thead><tr><th style="width:40%">Metric</th><th style="width:20%">Current</th><th>FY27 target</th></tr></thead>
+    <tbody>
+      <tr><td>Mean time to detect (MTTD), high severity</td><td>~6 hours</td><td>≤ 1 hour</td></tr>
+      <tr><td>Mean time to respond (MTTR), high severity</td><td>~24 hours</td><td>≤ 8 hours</td></tr>
+      <tr><td>Playbook coverage of top risks</td><td>6 of 6 High/Medium</td><td>Maintained</td></tr>
+      <tr><td>Tabletop exercises per year</td><td>2</td><td>4</td></tr>
+      <tr><td>Post-mortems completed ≤ 10 business days</td><td>100%</td><td>100%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script><!-- ============================ SECTION 5: BOARD BRIEFING ============================ -->
+<div class="section" id="sec5">
+  <div class="section-head">
+    <span class="num">SECTION 5</span>
+    <h2>Board Briefing</h2>
+    <div class="lede">The security posture, the top risks, and the FY27 investment ask — presented for the Board Security &amp; Technology Committee.</div>
+  </div>
+
+  <p class="small"><strong>Meeting:</strong> Board Security &amp; Technology Committee &nbsp;·&nbsp; <strong>Date:</strong> November 2026 &nbsp;·&nbsp; <strong>Presenter:</strong> Chief Information Security Officer &nbsp;·&nbsp; <strong>Decision requested:</strong> Approve FY27 security investment of $1.42M and accept the residual-risk position described below.</p>
+
+  <h3 class="block">5.1 The Bottom Line</h3>
+  <p>Vantage's security program is maturing and defensible. We hold a current SOC&nbsp;2 Type&nbsp;II report, we have moved the majority of our endpoints and identity estate under modern controls, and we have a funded forensic retainer on standby. The program is not, however, finished. Six risks remain rated <strong>High</strong>, and the binding constraint on reducing them is <strong>detection and response capacity</strong> — our ability to see and act on threats quickly — not the purchase of additional tools. The FY27 plan asks the Committee to fund a targeted, evidence-based set of investments that close the six High risks, achieve ISO&nbsp;27001 certification, and advance us toward PCI&nbsp;DSS v4.0 alignment.</p>
+
+  <h3 class="block">5.2 Posture Snapshot</h3>
+  <div class="two-col">
+    <div>
+      <table class="compact">
+        <tbody>
+          <tr><td><strong>SOC 2 Type II</strong></td><td><span class="badge b-teal">Current</span></td></tr>
+          <tr><td><strong>ISO 27001</strong></td><td><span class="badge b-med">In progress</span></td></tr>
+          <tr><td><strong>PCI DSS v4.0</strong></td><td><span class="badge b-med">Roadmap</span></td></tr>
+          <tr><td><strong>High risks open</strong></td><td>6</td></tr>
+          <tr><td><strong>Phishing-resistant MFA</strong></td><td>78% → 100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="compact">
+        <tbody>
+          <tr><td><strong>Endpoint EDR</strong></td><td>95% → 100%</td></tr>
+          <tr><td><strong>MTTD (high severity)</strong></td><td>~6h → ≤1h</td></tr>
+          <tr><td><strong>Security team</strong></td><td>7 FTE (1 CISO + 6)</td></tr>
+          <tr><td><strong>Security spend (% revenue)</strong></td><td>~3.1% → ~4.6%</td></tr>
+          <tr><td><strong>ARR protected</strong></td><td>$92M</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="block">5.3 Top Risks the Board Should Track</h3>
+  <p>These six risks are the program's High-rated exposures. Each is drawn directly from the enterprise risk register (Section&nbsp;2) and each has a named owner, an existing control set, and a funded FY27 treatment.</p>
+  <table>
+    <thead><tr><th style="width:8%">ID</th><th style="width:26%">Risk</th><th style="width:14%">Business impact</th><th style="width:22%">Why it matters now</th><th style="width:16%">FY27 mitigation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>R-01</strong></td><td>Phishing &amp; credential compromise</td><td>Account takeover; fraud</td><td>Phishing remains the top initial-access vector industry-wide; 22% of workforce still lacks phishing-resistant MFA.</td><td>Complete FIDO2 rollout; conditional access.</td></tr>
+      <tr><td><strong>R-02</strong></td><td>Third-party / supply-chain breach</td><td>Customer data exposure</td><td>A vendor breach in Q1 2026 showed our exposure to partners we do not control.</td><td>Continuous vendor monitoring; SBOM.</td></tr>
+      <tr><td><strong>R-04</strong></td><td>Cloud misconfiguration</td><td>Data exposure; lateral movement</td><td>Misconfiguration is the leading cause of cloud data exposure; our review is still partly manual.</td><td>CSPM; policy-as-code.</td></tr>
+      <tr><td><strong>R-07</strong></td><td>Data exfiltration of regulated data</td><td>Regulatory penalty; customer loss</td><td>We process PII and tokenized card data on behalf of regulated institutions.</td><td>Enterprise DLP; exfiltration alerting.</td></tr>
+      <tr><td><strong>R-12</strong></td><td>Inadequate detection &amp; response</td><td>Prolonged breach; higher cost</td><td>~6-hour MTTD is above our target; dwell time drives breach cost.</td><td>SOAR; threat hunting; 3rd engineer.</td></tr>
+      <tr><td><strong>R-14</strong></td><td>Unpatched vulnerability exploitation</td><td>System compromise</td><td>Internet-facing assets are attacked continuously; scanning is still monthly.</td><td>Continuous scanning; risk-based SLAs.</td></tr>
+    </tbody>
+  </table>
+  <p class="footer-note">All six IDs appear in the enterprise risk register (Section 2.2). No risk is named in this briefing that the register does not contain.</p>
+
+  <h3 class="block">5.4 What We Are Asking For — FY27 Investment ($1.42M)</h3>
+  <table>
+    <thead><tr><th style="width:44%">Investment</th><th style="width:14%">Amount</th><th>Risk addressed</th></tr></thead>
+    <tbody>
+      <tr><td>Third security engineer + threat-hunting capability</td><td>$280K</td><td>R-12, R-15</td></tr>
+      <tr><td>SOAR platform &amp; implementation</td><td>$180K</td><td>R-12</td></tr>
+      <tr><td>CSPM &amp; cloud security tooling</td><td>$150K</td><td>R-04</td></tr>
+      <tr><td>ISO 27001 certification &amp; audit</td><td>$140K</td><td>R-08</td></tr>
+      <tr><td>Enterprise DLP</td><td>$120K</td><td>R-07</td></tr>
+      <tr><td>PCI DSS v4.0 assessment</td><td>$120K</td><td>R-08</td></tr>
+      <tr><td>Continuous vendor monitoring &amp; SBOM</td><td>$110K</td><td>R-02</td></tr>
+      <tr><td>Secrets management platform</td><td>$90K</td><td>R-10</td></tr>
+      <tr><td>Penetration-testing expansion</td><td>$80K</td><td>R-06, R-14</td></tr>
+      <tr><td>Security awareness &amp; phishing-simulation upgrade</td><td>$50K</td><td>R-01, R-13</td></tr>
+      <tr><td>Contingency</td><td>$100K</td><td>—</td></tr>
+      <tr style="background:#eef3f8"><td><strong>Total FY27 request</strong></td><td><strong>$1.42M</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">5.5 Why This Is the Right Level of Spend</h3>
+  <p>Vantage's security spend is approximately 3.1% of revenue today; the FY27 plan raises it to roughly 4.6%, in line with peer fintechs of our size and regulatory exposure. The plan prioritizes <strong>capability over tooling</strong>: the single largest line item is a person, because detection and response capacity — not another dashboard — is what shortens the time an attacker can operate undetected. Every dollar requested maps to a named risk, and every named risk maps to a business consequence the Committee already understands: customer trust, regulatory standing, and the ability to win enterprise deals that require ISO&nbsp;27001 and PCI&nbsp;DSS assurance.</p>
+
+  <h3 class="block">5.6 Decisions Requested</h3>
+  <ol>
+    <li><strong>Approve</strong> the FY27 security investment of $1.42M as itemized in Section&nbsp;5.4.</li>
+    <li><strong>Accept</strong> the current residual-risk position, acknowledging six High risks under active treatment.</li>
+    <li><strong>Endorse</strong> ISO&nbsp;27001 certification as an FY27 corporate objective and PCI&nbsp;DSS v4.0 alignment as an FY27–FY28 objective.</li>
+    <li><strong>Note</strong> the detection-and-response capacity constraint (R-12) as the program's single most important dependency.</li>
+  </ol>
+
+  <div class="callout key">
+    <span class="ct">One-line ask</span>
+    Fund $1.42M in FY27 to close six named High risks, certify ISO&nbsp;27001, and add the detection capacity that makes the rest of the program effective.
+  </div>
+</div>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script><!-- ============================ SECTION 6: COMPLIANCE ROADMAP ============================ -->
+<div class="section" id="sec6">
+  <div class="section-head">
+    <span class="num">SECTION 6</span>
+    <h2>FY27 Compliance &amp; Capability Roadmap</h2>
+    <div class="lede">The funding and delivery timeline that makes every "operational today" claim in the incident response plan true — and every future capability real.</div>
+  </div>
+
+  <p>The roadmap is where the portfolio proves it is one program rather than four documents. It takes the risks in the register, the controls in the architecture, and the capabilities the incident response plan assumes, and sequences them into a funded twelve-month plan. Critically, it distinguishes what is <strong>already operational</strong> (and therefore safe for the IR plan to rely on) from what is <strong>still being built</strong> (and therefore must not be assumed). FY27 runs January–December 2027.</p>
+
+  <h3 class="block">6.1 Baseline — Operational Before FY27</h3>
+  <table class="compact">
+    <thead><tr><th style="width:34%">Capability</th><th style="width:18%">Since</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>SOC 2 Type II</td><td>2024</td><td><span class="badge b-teal">Current</span></td></tr>
+      <tr><td>MDR partner (24×7 monitoring)</td><td>Q4 2025</td><td><span class="badge b-teal">Operational</span></td></tr>
+      <tr><td>SIEM</td><td>2025</td><td><span class="badge b-teal">Operational</span></td></tr>
+      <tr><td>EDR (95% coverage)</td><td>2025</td><td><span class="badge b-teal">Operational</span></td></tr>
+      <tr><td>Forensic retainer (DFIR firm)</td><td>Q1 2026</td><td><span class="badge b-teal">Operational</span></td></tr>
+      <tr><td>On-call rotation + core playbooks (v1)</td><td>2025–2026</td><td><span class="badge b-teal">Operational</span></td></tr>
+      <tr><td>SSO + partial phishing-resistant MFA (78%)</td><td>2025</td><td><span class="badge b-teal">Operational</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">6.2 FY27 Quarterly Plan</h3>
+  <table class="roadmap">
+    <thead><tr><th style="width:13%">Quarter</th><th style="width:37%">Compliance milestones</th><th style="width:34%">Security capability milestones</th><th style="width:16%">Risks advanced</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="q">Q1 FY27<br>Jan–Mar</td>
+        <td>ISO 27001 Stage 1 readiness assessment; control-evidence library stood up.</td>
+        <td class="now">100% FIDO2 MFA; 100% EDR; ransomware playbook + backup-restoration testing; CSPM deployment begins; secrets-manager deployment begins; continuous vulnerability scanning begins; <strong>third security engineer hired</strong>.</td>
+        <td>R-01, R-03, R-04, R-10, R-14, R-12</td>
+      </tr>
+      <tr>
+        <td class="q">Q2 FY27<br>Apr–Jun</td>
+        <td><strong>ISO 27001 Stage 2 audit → certification</strong>; PCI DSS v4.0 scoping begins.</td>
+        <td class="now">CSPM complete + policy-as-code; secrets manager complete with auto-rotation; JIT privileged access expanded; API authZ testing in CI/CD; <strong>threat hunting begins</strong>; BEC detections; continuous scanning complete.</td>
+        <td>R-04, R-10, R-05, R-06, R-12, R-13</td>
+      </tr>
+      <tr>
+        <td class="q">Q3 FY27<br>Jul–Sep</td>
+        <td>ISO 27001 surveillance planning; PCI DSS v4.0 gap remediation.</td>
+        <td class="now"><strong>SOAR phase 1 live</strong> (manual playbook steps automated); enterprise DLP deployment; UEBA alerting; continuous vendor monitoring + SBOM ingestion; DDoS runbook; device-posture checks in conditional access.</td>
+        <td>R-12, R-07, R-02, R-09, R-11</td>
+      </tr>
+      <tr>
+        <td class="q">Q4 FY27<br>Oct–Dec</td>
+        <td><strong>PCI DSS v4.0 assessment</strong>; annual policy review; ISO 27001 first surveillance audit.</td>
+        <td class="now">SOAR phase 2; threat-hunting program mature (<strong>MTTD ≤ 1 hour</strong>); vendor monitoring fully operational; annual program review.</td>
+        <td>R-12, R-02, R-08, R-14</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">6.3 Capability Funding Alignment</h3>
+  <p>This table exists to answer one reviewer question: <em>is every capability the incident response plan relies on actually funded?</em></p>
+  <table class="compact">
+    <thead><tr><th style="width:40%">IR plan assumption (Section 4)</th><th style="width:26%">Funding source</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>MDR partner provides 24×7 monitoring</td><td>Existing operating budget</td><td><span class="badge b-teal">Funded &amp; live</span></td></tr>
+      <tr><td>Forensic retainer on standby</td><td>Existing operating budget</td><td><span class="badge b-teal">Funded &amp; live</span></td></tr>
+      <tr><td>SIEM + EDR telemetry</td><td>Existing operating budget</td><td><span class="badge b-teal">Funded &amp; live</span></td></tr>
+      <tr><td>On-call rotation (not 24×7 in-house SOC)</td><td>Existing headcount</td><td><span class="badge b-teal">Funded &amp; live</span></td></tr>
+      <tr><td>SOAR automation (explicitly <em>not</em> assumed today)</td><td>FY27 ask — $180K</td><td><span class="badge b-med">Funded Q3 FY27</span></td></tr>
+      <tr><td>Dedicated threat hunting (explicitly <em>not</em> assumed today)</td><td>FY27 ask — $280K (engineer)</td><td><span class="badge b-med">Funded Q1–Q2 FY27</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="ct">The consistency guarantee</span>
+    The IR plan (Section 4.2) assumes only the four capabilities marked <em>Funded &amp; live</em>. The two capabilities it explicitly does <em>not</em> assume (SOAR and threat hunting) are precisely the ones the roadmap funds in FY27. There is no capability the IR plan leans on that the roadmap has not paid for — and no capability the roadmap funds that the IR plan quietly assumes already exists.
+  </div>
+</div>
+
+<!-- ============================ SECTION 7: CONSISTENCY ============================ -->
+<div class="section" id="sec7">
+  <div class="section-head">
+    <span class="num">SECTION 7</span>
+    <h2>Consistency &amp; Traceability Review</h2>
+    <div class="lede">The verification pass that proves the four artifacts are one program, not four exercises.</div>
+  </div>
+
+  <p>Before this portfolio was finalized, it was reviewed for internal consistency — the single most important quality check for a document that claims to describe one coherent security function. Three specific checks were performed, mirroring the way a reviewer would test the portfolio: do the risks named in the board briefing match the register, do the architecture decisions trace back to those same risks, and does the compliance roadmap align with what the incident response plan assumes is operationally in place today?</p>
+
+  <h3 class="block">7.1 Check 1 — Board briefing risks ⊆ Risk register</h3>
+  <p><strong>Result: PASS.</strong> The board briefing (Section&nbsp;5.3) names exactly six risks — R-01, R-02, R-04, R-07, R-12, R-14 — and all six appear in the register (Section&nbsp;2.2) with the same ratings and owners. No risk is named in the briefing that the register does not contain, and no High-rated register risk is omitted from the briefing.</p>
+
+  <h3 class="block">7.2 Check 2 — Architecture decisions trace to register risks</h3>
+  <p><strong>Result: PASS.</strong> Every pillar of the Zero Trust architecture (Section&nbsp;3) names the risk ID(s) it mitigates, and every High and Medium risk in the register has at least one corresponding architecture control or roadmap treatment. The mapping is shown below.</p>
+
+  <table>
+    <thead><tr><th style="width:8%">Risk</th><th style="width:10%">Rating</th><th style="width:27%">Architecture control (Sec. 3)</th><th style="width:20%">IR playbook (Sec. 4)</th><th style="width:20%">Roadmap (Sec. 6)</th><th style="width:15%">Board mention</th></tr></thead>
+    <tbody>
+      <tr><td><strong>R-01</strong></td><td><span class="badge b-high">High</span></td><td>3.2 Identity — FIDO2, conditional access</td><td>4.5 Phishing/ATO</td><td>Q1 FIDO2 100%</td><td>5.3 ✓</td></tr>
+      <tr><td><strong>R-02</strong></td><td><span class="badge b-high">High</span></td><td>3.7 Third-party — continuous monitoring, SBOM</td><td>4.5 Third-party breach</td><td>Q3 vendor monitoring</td><td>5.3 ✓</td></tr>
+      <tr><td><strong>R-03</strong></td><td><span class="badge b-med">Medium</span></td><td>3.3 Devices — EDR</td><td>4.5 Ransomware</td><td>Q1 backup testing</td><td>—</td></tr>
+      <tr><td><strong>R-04</strong></td><td><span class="badge b-high">High</span></td><td>3.5 Network/Cloud — CSPM, policy-as-code</td><td>4.5 Cloud misconfig</td><td>Q1–Q2 CSPM</td><td>5.3 ✓</td></tr>
+      <tr><td><strong>R-05</strong></td><td><span class="badge b-med">Medium</span></td><td>3.3 Devices — JIT privileged access</td><td>4.5 (containment)</td><td>Q2 JIT expansion</td><td>—</td></tr>
+      <tr><td><strong>R-06</strong></td><td><span class="badge b-med">Medium</span></td><td>3.4 App/API — object-level authZ testing</td><td>4.5 (containment)</td><td>Q2 API testing</td><td>—</td></tr>
+      <tr><td><strong>R-07</strong></td><td><span class="badge b-high">High</span></td><td>3.6 Data — DLP, tokenization, encryption</td><td>4.5 Data breach</td><td>Q3 enterprise DLP</td><td>5.3 ✓</td></tr>
+      <tr><td><strong>R-08</strong></td><td><span class="badge b-med">Medium</span></td><td>1.3 Data standard; governance</td><td>4.7 Notification</td><td>Q2 ISO; Q4 PCI</td><td>5.6 ✓</td></tr>
+      <tr><td><strong>R-09</strong></td><td><span class="badge b-med">Medium</span></td><td>3.5 Network — segmentation, Shield</td><td>4.5 (availability)</td><td>Q3 DDoS runbook</td><td>—</td></tr>
+      <tr><td><strong>R-10</strong></td><td><span class="badge b-med">Medium</span></td><td>3.8 Secrets — central manager</td><td>4.5 (containment)</td><td>Q1–Q2 secrets mgr</td><td>5.4 ✓</td></tr>
+      <tr><td><strong>R-11</strong></td><td><span class="badge b-low">Low</span></td><td>3.2 Identity — device posture</td><td>—</td><td>Q3 posture checks</td><td>—</td></tr>
+      <tr><td><strong>R-12</strong></td><td><span class="badge b-high">High</span></td><td>3.10 Detection layer — SIEM, MDR</td><td>4.4 lifecycle; 4.8 metrics</td><td>Q3 SOAR; Q4 hunting</td><td>5.3, 5.6 ✓</td></tr>
+      <tr><td><strong>R-13</strong></td><td><span class="badge b-med">Medium</span></td><td>3.2 Identity; 3.4 App</td><td>4.5 BEC/fraud</td><td>Q2 BEC detections</td><td>—</td></tr>
+      <tr><td><strong>R-14</strong></td><td><span class="badge b-high">High</span></td><td>3.9 Vulnerability — continuous scanning</td><td>4.5 (eradication)</td><td>Q1–Q2 scanning</td><td>5.3 ✓</td></tr>
+      <tr><td><strong>R-15</strong></td><td><span class="badge b-low">Low</span></td><td>1.5 Governance — cross-training</td><td>—</td><td>Q2 3rd engineer</td><td>5.4 ✓</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">7.3 Check 3 — Roadmap timeline vs. IR plan assumptions</h3>
+  <p><strong>Result: PASS.</strong> The incident response plan (Section&nbsp;4.2) assumes four capabilities are operational today — MDR 24×7 monitoring, SIEM/EDR telemetry, the forensic retainer, and the on-call rotation — and all four are in the pre-FY27 baseline (Section&nbsp;6.1), funded by the existing operating budget. The plan explicitly does <em>not</em> assume SOAR automation or a dedicated threat-hunting team; those two capabilities are funded by the FY27 roadmap (Section&nbsp;6.3) and are the exact items the plan flags as "in build." <strong>There is no capability the IR plan assumes that the roadmap has not funded.</strong></p>
+
+  <div class="callout key">
+    <span class="ct">Reviewer's summary</span>
+    The three consistency checks all pass. The board briefing cites only register risks; the architecture traces to those risks; and the IR plan's operational assumptions are fully funded while its future capabilities are explicitly roadmap-funded. A reviewer can follow any claim in this portfolio back to its source without finding a contradiction.
+  </div>
+</div>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script><!-- ============================ APPENDIX A ============================ -->
+<div class="section" id="appA">
+  <div class="section-head">
+    <span class="num">APPENDIX A</span>
+    <h2>Control Mapping — NIST CSF 2.0</h2>
+    <div class="lede">A crosswalk showing how the program's controls map to the six NIST Cybersecurity Framework 2.0 functions.</div>
+  </div>
+
+  <p>This appendix lets an auditor or customer trace Vantage's program to a recognized framework. Each NIST CSF 2.0 function is mapped to the portfolio sections and register risks that implement it.</p>
+
+  <table>
+    <thead><tr><th style="width:14%">CSF Function</th><th style="width:40%">Representative controls at Vantage</th><th style="width:24%">Portfolio reference</th><th>Risks</th></tr></thead>
+    <tbody>
+      <tr><td><strong>GOVERN (GV)</strong></td><td>Board oversight; master policy; risk appetite; roles and responsibilities; third-party policy.</td><td>Sections 1.1, 1.4, 1.5</td><td>R-08, R-15</td></tr>
+      <tr><td><strong>IDENTIFY (ID)</strong></td><td>Risk register; asset inventory; data classification; vendor inventory; SBOM.</td><td>Sections 1.3, 2, 3.7</td><td>R-02, R-08</td></tr>
+      <tr><td><strong>PROTECT (PR)</strong></td><td>Phishing-resistant MFA; least privilege; JIT access; encryption; tokenization; microsegmentation; secrets management; secure SDLC.</td><td>Sections 3.2–3.8</td><td>R-01, R-04, R-05, R-06, R-07, R-10, R-11</td></tr>
+      <tr><td><strong>DETECT (DE)</strong></td><td>SIEM; MDR; EDR; CSPM; DLP; UEBA; continuous vulnerability scanning.</td><td>Sections 3.5, 3.9, 4.2–4.4</td><td>R-04, R-12, R-14</td></tr>
+      <tr><td><strong>RESPOND (RS)</strong></td><td>IR plan; severity classification; playbooks; forensic retainer; communications and notification.</td><td>Section 4</td><td>R-01, R-02, R-03, R-07, R-12, R-13</td></tr>
+      <tr><td><strong>RECOVER (RC)</strong></td><td>Immutable backups; DR region; backup-restoration testing; post-incident reviews.</td><td>Sections 4.4, 6.2</td><td>R-03, R-09</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="block">Framework Alignment Summary</h3>
+  <table class="compact">
+    <thead><tr><th style="width:34%">Framework / Standard</th><th style="width:22%">Current status</th><th>Relevance</th></tr></thead>
+    <tbody>
+      <tr><td>SOC 2 Type II</td><td><span class="badge b-teal">Current</span></td><td>Core assurance for enterprise customers.</td></tr>
+      <tr><td>ISO/IEC 27001:2022</td><td><span class="badge b-med">Target Q2 FY27</span></td><td>International recognition; unlocks EU deals.</td></tr>
+      <tr><td>PCI DSS v4.0</td><td><span class="badge b-med">Target Q4 FY27</span></td><td>Required for cardholder-data handling.</td></tr>
+      <tr><td>NIST CSF 2.0</td><td><span class="badge b-teal">Adopted</span></td><td>Organizing framework for the program.</td></tr>
+      <tr><td>NIST SP 800-61</td><td><span class="badge b-teal">Adopted</span></td><td>Incident response lifecycle.</td></tr>
+      <tr><td>NIST SP 800-207 (Zero Trust)</td><td><span class="badge b-teal">Adopted</span></td><td>Zero Trust architecture principles.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================ APPENDIX B ============================ -->
+<div class="section" id="appB">
+  <div class="section-head">
+    <span class="num">APPENDIX B</span>
+    <h2>Glossary</h2>
+    <div class="lede">Definitions of the acronyms and terms used throughout this portfolio.</div>
+  </div>
+
+  <table class="compact">
+    <thead><tr><th style="width:22%">Term</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ATO</strong></td><td>Account Takeover — unauthorized access to a user account, typically via stolen credentials.</td></tr>
+      <tr><td><strong>BEC</strong></td><td>Business Email Compromise — fraud in which an attacker impersonates a trusted party to divert funds or data.</td></tr>
+      <tr><td><strong>CSPM</strong></td><td>Cloud Security Posture Management — continuous detection of cloud misconfigurations.</td></tr>
+      <tr><td><strong>DFIR</strong></td><td>Digital Forensics and Incident Response — specialist investigation of security incidents.</td></tr>
+      <tr><td><strong>DLP</strong></td><td>Data Loss Prevention — controls that detect and block unauthorized data movement.</td></tr>
+      <tr><td><strong>EDR</strong></td><td>Endpoint Detection and Response — monitoring and response software on endpoints.</td></tr>
+      <tr><td><strong>FIDO2 / WebAuthn</strong></td><td>Phishing-resistant authentication standards using hardware security keys or platform authenticators.</td></tr>
+      <tr><td><strong>IAM</strong></td><td>Identity and Access Management.</td></tr>
+      <tr><td><strong>JIT</strong></td><td>Just-in-Time access — granting elevated privileges only when needed, for a limited time.</td></tr>
+      <tr><td><strong>MDR</strong></td><td>Managed Detection and Response — an external partner providing 24×7 monitoring and triage.</td></tr>
+      <tr><td><strong>MTTD / MTTR</strong></td><td>Mean Time To Detect / Mean Time To Respond.</td></tr>
+      <tr><td><strong>PAM</strong></td><td>Privileged Access Management.</td></tr>
+      <tr><td><strong>PII</strong></td><td>Personally Identifiable Information.</td></tr>
+      <tr><td><strong>SBOM</strong></td><td>Software Bill of Materials — an inventory of components in a software product.</td></tr>
+      <tr><td><strong>SIEM</strong></td><td>Security Information and Event Management — centralized log aggregation and correlation.</td></tr>
+      <tr><td><strong>SOAR</strong></td><td>Security Orchestration, Automation, and Response — automation of response playbooks.</td></tr>
+      <tr><td><strong>UEBA</strong></td><td>User and Entity Behavior Analytics — detection based on anomalous behavior.</td></tr>
+      <tr><td><strong>ZTNA</strong></td><td>Zero Trust Network Access — per-application access that replaces broad VPN connectivity.</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="soft">
+  <h3 class="block">Closing Statement</h3>
+  <p>This portfolio represents the consolidated security program of Vantage Financial Technologies as of October 2026. It is intended to be a living document: the risk register is reviewed quarterly, the architecture and roadmap are updated annually or upon material change, and the incident response plan is exercised at least twice a year. The executive summary at the front of this document will be refreshed with each major revision so that a first-time reader always receives an accurate one-page picture of the program.</p>
+  <p class="footer-note">Vantage Financial Technologies, Inc. — Information Security Program Portfolio, Version 1.0 — Confidential. Prepared by the Office of the CISO for the Board Security &amp; Technology Committee.</p>
+</div>
+
+</body>
+</html>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
